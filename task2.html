@@ -1,17 +1,68 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title>My Favourite Hobby</title>
-</head>
-<body>
+<body style="font-family:system-ui;padding:24px;display:flex;justify-content:center">
 
-    <h1>Playing Football</h1>
+  <style>
+    .card {
+      padding: 24px;
+      border-radius: 16px;
+      width: 260px;
+      background: #f0f4ff;
+      border: 2px solid #c8d4f0;
+      text-align: center;
+      transition: all 0.3s;
+    }
 
-    <h2>Why I Love It</h2>
-    <p>Football is my favourite hobby because it is fun and keeps me active. The <strong>excitement</strong> of playing with friends makes me happy and helps me reduce stress.</p>
+    .card.dark {
+      background: #1a2340;
+      border-color: #3a4a70;
+      color: white;
+    }
 
-    <h2>How to Start</h2>
-    <p>To start playing football, you only need a ball and a safe place to practice. You can learn basic skills such as <em>dribbling</em> and passing by practicing regularly with friends.</p>
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #1a56db;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      border: none;
+      margin-top: 14px;
+      font-weight: bold;
+    }
+  </style>
+
+  <div id="card" class="card">
+    <div class="avatar">👩‍💻</div>
+    <h2>Kim Jisoo</h2>
+    <p>Web Programming Student</p>
+    <button id="toggle-btn">🌙 Dark Mode</button>
+  </div>
+
+  <script>
+    const card = document.querySelector('#card');
+    const button = document.querySelector('#toggle-btn');
+
+    button.addEventListener('click', function() {
+      card.classList.toggle('dark');
+
+      if (card.classList.contains('dark')) {
+        button.textContent = '☀️ Light Mode';
+      } else {
+        button.textContent = '🌙 Dark Mode';
+      }
+    });
+  </script>
 
 </body>
 </html>
