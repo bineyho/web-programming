@@ -1,94 +1,112 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+<html>
+<body style="font-family:system-ui;padding:20px;max-width:420px;margin:auto">
+
   <style>
-    /* Page background and centering */
-    body {
-      font-family: sans-serif;
-      background-color: #f1f5f9;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    h2 {
+      color: #1a56db;
     }
 
-    /* Profile card */
-    .card {
-      background-color: white;
-      width: 350px;
-      padding: 30px;
+    #search {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 14px;
+      font-size: 16px;
+      border: 2px solid #1a56db;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+
+    .student {
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      background: #f0f4ff;
+      border-radius: 8px;
+      border: 1px solid #c8d4f0;
+      font-size: 15px;
+    }
+
+    mark {
+      background: #f7df1e;
+      border-radius: 3px;
+    }
+
+    #no-results {
+      display: none;
+      color: #9ca3af;
       text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Avatar */
-    .avatar {
-      width: 80px;
-      height: 80px;
-      background-color: #10B981;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto 15px;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    /* Name */
-    .name {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    /* Role */
-    .role {
-      color: #64748b;
-      margin-bottom: 20px;
-    }
-
-    /* Horizontal line */
-    hr {
-      border: none;
-      border-top: 1px solid #e2e8f0;
-      margin-bottom: 20px;
-    }
-
-    /* Skills row */
-    .skills {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    /* Skill badges */
-    .badge {
-      background-color: #10B981;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.9rem;
+      padding: 20px;
     }
   </style>
-</head>
-<body>
-  <div class="card">
-    <div class="avatar">K</div>
-    <h2 class="name">Kim Jisoo</h2>
-    <p class="role">Web Programming Student</p>
-    <hr>
-    <div class="skills">
-      <span class="badge">HTML5</span>
-      <span class="badge">CSS3</span>
-      <span class="badge">Flexbox</span>
-    </div>
+
+  <h2>Student Search</h2>
+
+  <input id="search" type="text" placeholder="Search students...">
+
+  <div id="student-list">
+    <div class="student" data-name="Kim Jisoo">Kim Jisoo — Web Programming</div>
+    <div class="student" data-name="Park Minjun">Park Minjun — Computer Science</div>
+    <div class="student" data-name="Lee Sooyeon">Lee Sooyeon — Software Engineering</div>
+    <div class="student" data-name="Choi Hyunwoo">Choi Hyunwoo — Artificial Intelligence</div>
+    <div class="student" data-name="Jung Yuna">Jung Yuna — Data Science</div>
+    <div class="student" data-name="Kang Seojun">Kang Seojun — Web Programming</div>
   </div>
+
+  <p id="no-results">No students found.</p>
+
+  <script>
+    // 1. Select the search box and student rows
+    const search = document.querySelector('#search');
+    const students = document.querySelectorAll('.student');
+    const noResults = document.querySelector('#no-results');
+
+    // Save the original student content
+    students.forEach(function(student) {
+      student.dataset.original = student.innerHTML;
+    });
+
+    // 2. Filter students as the user types
+    search.addEventListener('input', function(e) {
+      const term = e.target.value.toLowerCase();
+      let visibleCount = 0;
+
+      // 3. Check each student
+      students.forEach(function(student) {
+        const name = student.getAttribute('data-name');
+        const lowerName = name.toLowerCase();
+
+        if (lowerName.includes(term)) {
+          student.style.display = '';
+
+          // Restore original content
+          student.innerHTML = student.dataset.original;
+
+          // Highlight the matching name
+          if (term !== '') {
+            const index = lowerName.indexOf(term);
+            const before = name.slice(0, index);
+            const match = name.slice(index, index + term.length);
+            const after = name.slice(index + term.length);
+            const subject = student.dataset.original.slice(name.length);
+
+            student.innerHTML =
+              before + '<mark>' + match + '</mark>' +
+              after + subject;
+          }
+
+          visibleCount++;
+        } else {
+          student.style.display = 'none';
+          student.innerHTML = student.dataset.original;
+        }
+      });
+
+      // 4. Show message if no students match
+      noResults.style.display =
+        visibleCount === 0 ? 'block' : 'none';
+    });
+  </script>
+
 </body>
 </html>
-
