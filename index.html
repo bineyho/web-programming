@@ -123,23 +123,25 @@
             background: #1d4ed8;
         }
 
-        .search {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 25px;
-            padding: 13px;
-            border: 1px solid #374151;
-            border-radius: 8px;
-            background: #151e30;
-            color: white;
-            font-size: 16px;
+        .week-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
         }
 
-        .empty {
-            color: #fca5a5;
-            text-align: center;
-            margin-top: 20px;
+        .week-links a {
+            display: inline-block;
+            background: #1e3a8a;
+            color: #dbeafe;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .week-links a:hover {
+            background: #2563eb;
         }
 
         footer {
@@ -169,7 +171,6 @@
 <nav>
     <a href="#home">Home</a>
     <a href="#weeks">Weekly Assignments</a>
-    <a href="#tasks">Individual Tasks</a>
     <a href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html" target="_blank" rel="noreferrer">Project Proposal</a>
     <a href="#about">About</a>
 </nav>
@@ -178,45 +179,75 @@
     <section class="intro">
         <h2>Welcome to My Portfolio</h2>
         <p class="muted">
-            Explore my coursework by week or search for an individual task.
+            Explore my coursework by week and open the tasks directly from each weekly section.
         </p>
     </section>
 
     <section id="weeks" class="section">
         <div class="intro">
             <h2 class="section-title">Weekly Assignments</h2>
-            <p class="muted">Open a folder to find the assignments saved inside it.</p>
+            <p class="muted">Open the task files under each week.</p>
         </div>
 
         <div class="tasks">
             <article class="card">
                 <h3>Week 1</h3>
                 <p>Exercises saved in the Week 1 folder.</p>
-                <a href="./week1/">Open Folder</a>
+                <div class="week-links">
+                    <a href="./week1/Task1.html">Task 1</a>
+                </div>
             </article>
 
             <article class="card">
                 <h3>Week 2</h3>
                 <p>Exercises saved in the Week 2 folder.</p>
-                <a href="./week%202/">Open Folder</a>
+                <div class="week-links">
+                    <a href="./week%202/task1.html">1</a>
+                    <a href="./week%202/task2.html">2</a>
+                    <a href="./week%202/task3.html">3</a>
+                    <a href="./week%202/task4.html">4</a>
+                    <a href="./week%202/task5.html">5</a>
+                    <a href="./week%202/task6.html">6</a>
+                    <a href="./week%202/task7.html">7</a>
+                    <a href="./week%202/task8.html">8</a>
+                </div>
             </article>
 
             <article class="card">
                 <h3>Week 3</h3>
                 <p>Exercises saved in the Week 3 folder.</p>
-                <a href="./week%203/">Open Folder</a>
+                <div class="week-links">
+                    <a href="./week%203/task1.html">1</a>
+                    <a href="./week%203/task2.html">2</a>
+                    <a href="./week%203/task3.html">3</a>
+                    <a href="./week%203/task4.html">4</a>
+                    <a href="./week%203/task5.html">5</a>
+                    <a href="./week%203/task6.html">6</a>
+                    <a href="./week%203/task7.html">7</a>
+                    <a href="./week%203/task8.html">8</a>
+                </div>
             </article>
 
             <article class="card">
                 <h3>Week 3.1</h3>
                 <p>Additional weekly exercises.</p>
-                <a href="./week3.1/">Open Folder</a>
+                <div class="week-links">
+                    <a href="./week3.1/task1.html">1</a>
+                    <a href="./week3.1/task2.html">2</a>
+                    <a href="./week3.1/task3.html">3</a>
+                    <a href="./week3.1/task5.html">5</a>
+                    <a href="./week3.1/task6.html">6</a>
+                    <a href="./week3.1/task7.html">7</a>
+                </div>
             </article>
 
             <article class="card">
                 <h3>Week 4</h3>
                 <p>Exercises saved in the Week 4 folder.</p>
-                <a href="./week4/">Open Folder</a>
+                <div class="week-links">
+                    <a href="./week4/task1.html">Task 1</a>
+                    <a href="./week4/task2">Task 2</a>
+                </div>
             </article>
 
             <article class="card">
@@ -227,76 +258,9 @@
         </div>
 
         <p class="muted" style="margin-top:15px;">
-            Note: A folder link opens directly only if that folder contains
-            an index.html file. Otherwise, use the individual file links below.
+            Note: A folder link opens directly only if that folder contains an index.html file.
+            Otherwise use the task links under each week.
         </p>
-    </section>
-
-    <section id="tasks" class="section">
-        <div class="intro">
-            <h2 class="section-title">Individual HTML Tasks</h2>
-            <p class="muted">Search and open your existing task files.</p>
-        </div>
-
-        <input
-            type="search"
-            id="search"
-            class="search"
-            placeholder="Search tasks, e.g. Task 3..."
-            aria-label="Search assignments"
-        >
-
-        <div class="tasks" id="task-list">
-            <article class="card" data-search="task 1 html">
-                <h3>Task 1</h3>
-                <p>HTML exercise.</p>
-                <a href="./task1.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 2 html">
-                <h3>Task 2</h3>
-                <p>HTML exercise.</p>
-                <a href="./task2.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 3 html">
-                <h3>Task 3</h3>
-                <p>HTML exercise.</p>
-                <a href="./task3.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 4 html">
-                <h3>Task 4</h3>
-                <p>HTML exercise.</p>
-                <a href="./task4.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 5 html">
-                <h3>Task 5</h3>
-                <p>HTML exercise.</p>
-                <a href="./task5.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 6 html">
-                <h3>Task 6</h3>
-                <p>HTML exercise.</p>
-                <a href="./task6.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 7 html">
-                <h3>Task 7</h3>
-                <p>HTML exercise.</p>
-                <a href="./task7.html">Open Task</a>
-            </article>
-
-            <article class="card" data-search="task 8 html">
-                <h3>Task 8</h3>
-                <p>HTML exercise.</p>
-                <a href="./task8.html">Open Task</a>
-            </article>
-        </div>
-
-        <p id="empty" class="empty" hidden>No matching tasks found.</p>
     </section>
 
     <section id="about" class="intro section">
@@ -311,26 +275,6 @@
 <footer>
     <p>Binay — Web Programming Portfolio | 2026</p>
 </footer>
-
-<script>
-    const search = document.querySelector("#search");
-    const cards = document.querySelectorAll("#task-list .card");
-    const empty = document.querySelector("#empty");
-
-    search.addEventListener("input", function () {
-        const query = search.value.toLowerCase().trim();
-        let visible = 0;
-
-        cards.forEach(function (card) {
-            const matches = card.dataset.search.includes(query);
-            card.hidden = !matches;
-
-            if (matches) visible++;
-        });
-
-        empty.hidden = visible !== 0;
-    });
-</script>
 
 </body>
 </html>
