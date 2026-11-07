@@ -2,164 +2,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My To-Do List</title>
+    <title>Profile Card - Dark Mode</title>
 
-  <style>
-    body {
-      font-family: system-ui;
-      padding: 20px;
-      max-width: 400px;
-      margin: auto;
-    }
+    <style>
+        body {
+            font-family: system-ui;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+        }
 
-    h2 {
-      color: #1a56db;
-    }
+        .card {
+            padding: 24px;
+            border-radius: 16px;
+            width: 260px;
+            background: #f0f4ff;
+            border: 2px solid #c8d4f0;
+            text-align: center;
+            transition: all 0.3s;
+        }
 
-    .add-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
+        .card.dark {
+            background: #1a2340;
+            border-color: #3a4a70;
+            color: white;
+        }
 
-    input {
-      flex: 1;
-      padding: 8px 12px;
-      border: 2px solid #c8d4f0;
-      border-radius: 8px;
-      font-size: 15px;
-    }
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #1a56db;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
 
-    button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .add-btn {
-      background: #1a56db;
-      color: white;
-    }
-
-    #todo-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .todo-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      margin-bottom: 6px;
-      background: #f0f4ff;
-      border-radius: 8px;
-      border: 1px solid #c8d4f0;
-    }
-
-    .del-btn {
-      background: #dc2626;
-      color: white;
-      padding: 4px 10px;
-      font-size: 12px;
-      border-radius: 6px;
-    }
-
-    #empty-msg {
-      color: #9ca3af;
-      text-align: center;
-      padding: 20px;
-      display: none;
-    }
-  </style>
+        button {
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: none;
+            margin-top: 14px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
-  <h2>My To-Do List</h2>
+    <div id="card" class="card">
+        <div class="avatar">👩‍💻</div>
 
-  <div class="add-row">
-    <input id="todo-input" type="text"
-      placeholder="Add a task...">
+        <h2>Subedi Binaya</h2>
 
-    <button id="add-btn" class="add-btn">
-      + Add
-    </button>
-  </div>
+        <p>Web Programming Student</p>
 
-  <ul id="todo-list"></ul>
+        <button id="toggle-btn">🌙 Dark Mode</button>
+    </div>
 
-  <p id="empty-msg">
-    No tasks yet! Add one above.
-  </p>
+    <script>
+        const card = document.querySelector("#card");
+        const toggleBtn = document.querySelector("#toggle-btn");
 
-  <script>
-    // Select elements
-    const input = document.getElementById('todo-input');
-    const addBtn = document.getElementById('add-btn');
-    const todoList = document.getElementById('todo-list');
-    const emptyMsg = document.getElementById('empty-msg');
+        toggleBtn.addEventListener("click", function() {
 
-    // Update empty message
-    function updateEmptyMsg() {
-      emptyMsg.style.display =
-        todoList.children.length === 0 ? 'block' : 'none';
-    }
+            card.classList.toggle("dark");
 
-    // Add task
-    function addTask() {
-      const taskText = input.value.trim();
+            if (card.classList.contains("dark")) {
+                toggleBtn.textContent = "☀️ Light Mode";
+            } else {
+                toggleBtn.textContent = "🌙 Dark Mode";
+            }
 
-      if (taskText === '') return;
-
-      // Create list item
-      const li = document.createElement('li');
-      li.className = 'todo-item';
-
-      // Create task text
-      const span = document.createElement('span');
-      span.textContent = taskText;
-
-      // Create delete button
-      const deleteBtn = document.createElement('button');
-      deleteBtn.textContent = '✕';
-      deleteBtn.className = 'del-btn';
-
-      // Append elements
-      li.appendChild(span);
-      li.appendChild(deleteBtn);
-      todoList.appendChild(li);
-
-      // Clear input
-      input.value = '';
-
-      updateEmptyMsg();
-    }
-
-    // Add button event
-    addBtn.addEventListener('click', addTask);
-
-    // Enter key event
-    input.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        addTask();
-      }
-    });
-
-    // Delete using event delegation
-    todoList.addEventListener('click', function(e) {
-      if (e.target.classList.contains('del-btn')) {
-        e.target.closest('li').remove();
-        updateEmptyMsg();
-      }
-    });
-
-    // Initial message
-    updateEmptyMsg();
-  </script>
+        });
+    </script>
 
 </body>
 </html>
