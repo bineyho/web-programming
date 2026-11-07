@@ -2,65 +2,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Click Counter</title>
+  <title>My To-Do List</title>
 
-    <style>
-        body {
-            font-family: system-ui;
-            padding: 24px;
-            text-align: center;
-        }
+  <style>
+    body {
+      font-family: system-ui;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
 
-        button {
-            padding: 14px 32px;
-            font-size: 18px;
-            border: none;
-            background: #1a56db;
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+    h2 {
+      color: #1a56db;
+    }
 
-        .done {
-            background: #16a34a !important;
-        }
+    .add-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
 
-        #count {
-            font-size: 32px;
-            font-weight: bold;
-        }
-    </style>
+    input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 2px solid #c8d4f0;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .add-btn {
+      background: #1a56db;
+      color: white;
+    }
+
+    #todo-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      background: #f0f4ff;
+      border-radius: 8px;
+      border: 1px solid #c8d4f0;
+    }
+
+    .del-btn {
+      background: #dc2626;
+      color: white;
+      padding: 4px 10px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    #empty-msg {
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
 
-    <h2>Click Counter</h2>
+  <h2>My To-Do List</h2>
 
-    <button id="clicker">Click me!</button>
+  <div class="add-row">
+    <input id="todo-input" type="text"
+      placeholder="Add a task...">
 
-    <p id="count">0</p>
+    <button id="add-btn" class="add-btn">
+      + Add
+    </button>
+  </div>
 
-    <p id="message">Keep clicking...</p>
+  <ul id="todo-list"></ul>
 
-    <script>
-        const button = document.querySelector("#clicker");
-        const countText = document.querySelector("#count");
-        const message = document.querySelector("#message");
+  <p id="empty-msg">
+    No tasks yet! Add one above.
+  </p>
 
-        let count = 0;
+  <script>
+    // Select elements
+    const input = document.getElementById('todo-input');
+    const addBtn = document.getElementById('add-btn');
+    const todoList = document.getElementById('todo-list');
+    const emptyMsg = document.getElementById('empty-msg');
 
-        button.addEventListener("click", function() {
-            count++;
+    // Update empty message
+    function updateEmptyMsg() {
+      emptyMsg.style.display =
+        todoList.children.length === 0 ? 'block' : 'none';
+    }
 
-            countText.textContent = count;
+    // Add task
+    function addTask() {
+      const taskText = input.value.trim();
 
-            if (count >= 5) {
-                button.classList.add("done");
-                message.textContent = "Congratulations! You clicked 5 times!";
-            }
-        });
-    </script>
+      if (taskText === '') return;
+
+      // Create list item
+      const li = document.createElement('li');
+      li.className = 'todo-item';
+
+      // Create task text
+      const span = document.createElement('span');
+      span.textContent = taskText;
+
+      // Create delete button
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = '✕';
+      deleteBtn.className = 'del-btn';
+
+      // Append elements
+      li.appendChild(span);
+      li.appendChild(deleteBtn);
+      todoList.appendChild(li);
+
+      // Clear input
+      input.value = '';
+
+      updateEmptyMsg();
+    }
+
+    // Add button event
+    addBtn.addEventListener('click', addTask);
+
+    // Enter key event
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        addTask();
+      }
+    });
+
+    // Delete using event delegation
+    todoList.addEventListener('click', function(e) {
+      if (e.target.classList.contains('del-btn')) {
+        e.target.closest('li').remove();
+        updateEmptyMsg();
+      }
+    });
+
+    // Initial message
+    updateEmptyMsg();
+  </script>
 
 </body>
 </html>
