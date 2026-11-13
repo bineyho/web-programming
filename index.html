@@ -1,341 +1,128 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binay — Web Programming Portfolio</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b1120;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #172554, #1d4ed8);
-            padding: 55px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: clamp(28px, 5vw, 42px);
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: #dbeafe;
-        }
-
-        nav {
-            background: #111827;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        nav a {
-            color: #d1d5db;
-            text-decoration: none;
-            margin: 0 12px;
-        }
-
-        nav a:hover {
-            color: #60a5fa;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .intro h2, .section-title {
-            font-size: 27px;
-            margin-bottom: 8px;
-            color: #f9fafb;
-        }
-
-        .muted {
-            color: #9ca3af;
-        }
-
-        .section {
-            margin-top: 55px;
-            scroll-margin-top: 75px;
-        }
-
-        .tasks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #151e30;
-            border: 1px solid #29364b;
-            padding: 23px;
-            border-radius: 14px;
-            transition: transform .2s, border-color .2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: #3b82f6;
-        }
-
-        .card h3 {
-            color: #93c5fd;
-            margin-bottom: 8px;
-        }
-
-        .card p {
-            color: #aab5c5;
-            margin-bottom: 15px;
-        }
-
-        .card a {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            padding: 9px 14px;
-            border-radius: 7px;
-            margin: 3px 4px 3px 0;
-        }
-
-        .card a:hover {
-            background: #1d4ed8;
-        }
-
-        .week-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 14px;
-        }
-
-        .week-links a {
-            display: inline-block;
-            background: #1e3a8a;
-            color: #dbeafe;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .week-links a:hover {
-            background: #2563eb;
-        }
-
-        footer {
-            margin-top: 65px;
-            padding: 25px;
-            background: #111827;
-            color: #9ca3af;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            nav a {
-                display: inline-block;
-                margin: 5px 8px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f1e7">
+  <title>Web Programming | Rahimjon</title>
+  <link rel="preload" href="assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/frame.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    .follow { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 44px; }
+    .follow img { display: block; width: 140px; height: 140px; }
+    .follow h2 { margin-bottom: 8px; font-size: 1.3rem; }
+    .follow p { margin: 0; }
+  </style>
 </head>
+<body class="pw-980">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">WP</span>Web Programming</a>
+    <p class="crumbs">K0126002 · 2026 Fall</p>
+  </header>
+  <main class="wrap" id="main-content">
+    <div class="page-head">
+      <p class="eyebrow">Course archive · Rahimjon</p>
+      <h1>Web <span class="marker">Programming</span></h1>
+      <p class="intro">Gachon University, K0126002. Pick a week to browse its classwork and exercises.</p>
+    </div>
 
-<body>
-
-<header id="home">
-    <h1>Binay — Web Programming</h1>
-    <p>My learning journey, weekly assignments, and HTML projects.</p>
-</header>
-
-<nav>
-    <a href="#home">Home</a>
-    <a href="#weeks">Weekly Assignments</a>
-    <a href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html"
-       target="_blank" rel="noreferrer">Project Proposal</a>
-    <a href="#about">About</a>
-</nav>
-
-<main>
-
-    <section class="intro">
-        <h2>Welcome to My Portfolio</h2>
-        <p class="muted">
-            Explore my coursework by week and open the tasks directly.
-        </p>
-    </section>
-
-    <section id="weeks" class="section">
-
-        <div class="intro">
-            <h2 class="section-title">Weekly Assignments</h2>
-            <p class="muted">Open the task files under each week.</p>
+    <nav class="tile-grid" aria-label="Course weeks">
+      <a class="tile" href="week2/index.html">
+        <div>
+          <span class="tile-num">W02</span>
+          <h2>Week 2</h2>
+          <p>HTML foundations and introductory web pages.</p>
         </div>
-
-        <div class="tasks" id="weekContainer">
-
-            <!-- WEEK 1 -->
-            <article class="card">
-                <h3>Week 1</h3>
-                <p>Exercises saved in the Week 1 folder.</p>
-                <div class="week-links">
-                    <a href="./week1/Task1.html">Task 1</a>
-                </div>
-            </article>
-
-            <!-- WEEK 2 -->
-            <article class="card">
-                <h3>Week 2</h3>
-                <p>Exercises saved in the Week 2 folder.</p>
-                <div class="week-links">
-                    <a href="./week%202/task1.html">1</a>
-                    <a href="./week%202/task2.html">2</a>
-                    <a href="./week%202/task3.html">3</a>
-                    <a href="./week%202/task4.html">4</a>
-                    <a href="./week%202/task5.html">5</a>
-                    <a href="./week%202/task6.html">6</a>
-                    <a href="./week%202/task7.html">7</a>
-                    <a href="./week%202/task8.html">8</a>
-                </div>
-            </article>
-
-            <!-- WEEK 3 -->
-            <article class="card">
-                <h3>Week 3</h3>
-                <p>Exercises saved in the Week 3 folder.</p>
-                <div class="week-links">
-                    <a href="./week%203/task1.html">1</a>
-                    <a href="./week%203/task2.html">2</a>
-                    <a href="./week%203/task3.html">3</a>
-                    <a href="./week%203/task4.html">4</a>
-                    <a href="./week%203/task5.html">5</a>
-                    <a href="./week%203/task6.html">6</a>
-                    <a href="./week%203/task7.html">7</a>
-                    <a href="./week%203/task8.html">8</a>
-                </div>
-            </article>
-
-            <!-- WEEK 3.1 -->
-            <article class="card">
-                <h3>Week 3.1</h3>
-                <p>Additional weekly exercises.</p>
-                <div class="week-links">
-                    <a href="./week3.1/task1.html">1</a>
-                    <a href="./week3.1/task2.html">2</a>
-                    <a href="./week3.1/task3.html">3</a>
-                    <a href="./week3.1/task5.html">5</a>
-                    <a href="./week3.1/task6.html">6</a>
-                    <a href="./week3.1/task7.html">7</a>
-                    <a href="./week3.1/tak4.html">4</a>
-                </div>
-            </article>
-
-            <!-- WEEK 4 -->
-            <article class="card">
-                <h3>Week 4</h3>
-                <p>Exercises saved in the Week 4 folder.</p>
-                <div class="week-links">
-                    <a href="./week4/task1.html">Task 1</a>
-                    <a href="./week4/task2.html">Task 2</a>
-                    <a href="./week4/task3.html">Task 3</a>
-                    <a href="./week4/task4.html">Task 4</a>
-                </div>
-            </article>
-
-            <!-- ADD MORE WEEKS BELOW THIS LINE -->
-
-            <!-- WEEK 5 EXAMPLE -->
-            <article class="card">
-                <h3>Week 5</h3>
-                <p>Exercises saved in the Week 5 folder.</p>
-                <div class="week-links">
-                    <a href="./week5/task1.html">Task 1</a>
-                    <a href="./week5/task2.html">Task 2</a>
-                    <a href="./week5/task3.html">Task 3</a>
-                    <a href="./week5/task4.html">Task 4</a>
-                </div>
-            </article>
-
-            <!-- WEEK 6 EXAMPLE -->
-            <article class="card">
-                <h3>Week 6</h3>
-                <p>Exercises saved in the Week 6 folder.</p>
-                <div class="week-links">
-                    <a href="./week6/task1.html">Task 1</a>
-                    <a href="./week6/task2.html">Task 2</a>
-                    <a href="./week6/task3.html">Task 3</a>
-                    <a href="./week6/task4.html">Task 4</a>
-                </div>
-            </article>
-
-            <!-- WEEK 7 EXAMPLE -->
-            <article class="card">
-                <h3>Week 7</h3>
-                <p>Exercises saved in the Week 7 folder.</p>
-                <div class="week-links">
-                    <a href="./week7/task1.html">Task 1</a>
-                    <a href="./week7/task2.html">Task 2</a>
-                    <a href="./week7/task3.html">Task 3</a>
-                    <a href="./week7/task4.html">Task 4</a>
-                </div>
-            </article>
-
-            <!-- WEEK 8 EXAMPLE -->
-            <article class="card">
-                <h3>Week 8</h3>
-                <p>Exercises saved in the Week 8 folder.</p>
-                <div class="week-links">
-                    <a href="./week8/task1.html">Task 1</a>
-                    <a href="./week8/task2.html">Task 2</a>
-                    <a href="./week8/task3.html">Task 3</a>
-                    <a href="./week8/task4.html">Task 4</a>
-                </div>
-            </article>
-
-            <!-- PROJECT PROPOSAL -->
-            <article class="card">
-                <h3>Ad Project Proposal</h3>
-                <p>Team 4 project proposal for the advertising campaign assignment.</p>
-                <a href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html"
-                   target="_blank" rel="noreferrer">Open Proposal</a>
-            </article>
-
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week3/index.html">
+        <div>
+          <span class="tile-num">W03</span>
+          <h2>Week 3</h2>
+          <p>CSS styling, layouts, and advanced Friday practice.</p>
         </div>
-    </section>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week4/index.html">
+        <div>
+          <span class="tile-num">W04</span>
+          <h2>Week 4</h2>
+          <p>JavaScript DOM and events.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week5/index.html">
+        <div>
+          <span class="tile-num">W05</span>
+          <h2>Week 5</h2>
+          <p>JavaScript conditions, loops, and a counter mini-app.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week7/index.html">
+        <div>
+          <span class="tile-num">W07</span>
+          <h2>Week 7</h2>
+          <p>Fetch API and async/await with free public APIs, plus a book search.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week8/index.html">
+        <div>
+          <span class="tile-num">W08</span>
+          <h2>Week 8</h2>
+          <p>HTML forms and JavaScript validation: contact and registration forms.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week9/index.html">
+        <div>
+          <span class="tile-num">W09</span>
+          <h2>Week 9</h2>
+          <p>Web accessibility and performance: Lighthouse audits, fixes and speed-ups.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week10/index.html">
+        <div>
+          <span class="tile-num">W10</span>
+          <h2>Week 10</h2>
+          <p>Git, GitHub Pages and deployment: my portfolio, practice repos and a custom 404 page.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" href="week11/index.html">
+        <div>
+          <span class="tile-num">W11</span>
+          <h2>Week 11</h2>
+          <p>React components and props: live class examples, a ProductCard challenge and a Portfolio Gallery app.</p>
+        </div>
+        <span class="tile-go">Open week <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile inverse" href="group%20project/index.html">
+        <div>
+          <span class="tile-num">GP</span>
+          <h2>Group Project</h2>
+          <p>Overlap: project overview, live site link and presentation deck.</p>
+        </div>
+        <span class="tile-go">Open project <span aria-hidden="true">→</span></span>
+      </a>
+    </nav>
 
-    <section id="about" class="intro section">
-        <h2 class="section-title">About This Portfolio</h2>
-        <p class="muted">
-            This portfolio showcases my progress in HTML, CSS, JavaScript,
-            and web development at university.
+    <section class="follow card" aria-labelledby="instagram-heading">
+      <a href="https://www.instagram.com/overlaps.app?mdxt=NHZzNXEyZTI0em8y" target="_blank" rel="noopener noreferrer">
+        <img src="group%20project/instagram-qr.svg" alt="QR code for the Overlap Instagram profile" width="140" height="140" loading="lazy" decoding="async">
+      </a>
+      <div>
+        <h2 id="instagram-heading">Follow Overlap</h2>
+        <p>Scan the QR code or visit
+          <a href="https://www.instagram.com/overlaps.app?mdxt=NHZzNXEyZTI0em8y" target="_blank" rel="noopener noreferrer">@overlaps.app on Instagram</a>.
         </p>
+      </div>
     </section>
-
-</main>
-
-<footer>
-    <p>Binay — Web Programming Portfolio | 2026</p>
-</footer>
-
+  </main>
+  <script src="site-nav.js" defer></script>
 </body>
 </html>
