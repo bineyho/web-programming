@@ -2,163 +2,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binay — Web Programming Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binay — Web Programming Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b1120;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #e5e7eb;
+    line-height: 1.6;
+}
 
-        header {
-            background: linear-gradient(135deg, #172554, #1d4ed8);
-            padding: 55px 20px;
-            text-align: center;
-        }
+header {
+    background: linear-gradient(135deg, #172554, #1d4ed8);
+    padding: 55px 20px;
+    text-align: center;
+}
 
-        header h1 {
-            font-size: clamp(28px, 5vw, 42px);
-            margin-bottom: 8px;
-        }
+header h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    margin-bottom: 8px;
+}
 
-        header p {
-            color: #dbeafe;
-        }
+header p {
+    color: #dbeafe;
+}
 
-        nav {
-            background: #111827;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+nav {
+    background: #111827;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
-        nav a {
-            color: #d1d5db;
-            text-decoration: none;
-            margin: 0 12px;
-        }
+nav a {
+    color: #d1d5db;
+    text-decoration: none;
+    margin: 0 12px;
+}
 
-        nav a:hover {
-            color: #60a5fa;
-        }
+nav a:hover {
+    color: #60a5fa;
+}
 
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-        .intro {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        .intro h2, .section-title {
-            font-size: 27px;
-            margin-bottom: 8px;
-            color: #f9fafb;
-        }
+.intro h2, .section-title {
+    font-size: 27px;
+    margin-bottom: 8px;
+    color: #f9fafb;
+}
 
-        .muted {
-            color: #9ca3af;
-        }
+.muted {
+    color: #9ca3af;
+}
 
-        .section {
-            margin-top: 55px;
-            scroll-margin-top: 75px;
-        }
+.section {
+    margin-top: 55px;
+    scroll-margin-top: 75px;
+}
 
-        .tasks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
+.tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
 
-        .card {
-            background: #151e30;
-            border: 1px solid #29364b;
-            padding: 23px;
-            border-radius: 14px;
-            transition: transform .2s, border-color .2s;
-        }
+.card {
+    background: #151e30;
+    border: 1px solid #29364b;
+    padding: 23px;
+    border-radius: 14px;
+    transition: transform .2s, border-color .2s;
+}
 
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: #3b82f6;
-        }
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #3b82f6;
+}
 
-        .card h3 {
-            color: #93c5fd;
-            margin-bottom: 8px;
-        }
+.card h3 {
+    color: #93c5fd;
+    margin-bottom: 8px;
+}
 
-        .card p {
-            color: #aab5c5;
-            margin-bottom: 15px;
-        }
+.card p {
+    color: #aab5c5;
+    margin-bottom: 15px;
+}
 
-        .card a {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            padding: 9px 14px;
-            border-radius: 7px;
-            margin: 3px 4px 3px 0;
-        }
+.week-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
 
-        .card a:hover {
-            background: #1d4ed8;
-        }
+.week-links a {
+    background: #1e3a8a;
+    color: #dbeafe;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+}
 
-        .week-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 14px;
-        }
+.week-links a:hover {
+    background: #2563eb;
+}
 
-        .week-links a {
-            display: inline-block;
-            background: #1e3a8a;
-            color: #dbeafe;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            text-decoration: none;
-        }
+button {
+    border: none;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    margin: 4px;
+}
 
-        .week-links a:hover {
-            background: #2563eb;
-        }
+button:hover {
+    background: #1d4ed8;
+}
 
-        footer {
-            margin-top: 65px;
-            padding: 25px;
-            background: #111827;
-            color: #9ca3af;
-            text-align: center;
-        }
+.add-week {
+    display: block;
+    margin: 0 auto 25px;
+    padding: 12px 22px;
+    font-size: 15px;
+}
 
-        @media (max-width: 600px) {
-            nav a {
-                display: inline-block;
-                margin: 5px 8px;
-            }
-        }
-    </style>
+.delete-btn {
+    background: #991b1b;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+footer {
+    margin-top: 65px;
+    padding: 25px;
+    background: #111827;
+    color: #9ca3af;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -171,113 +186,219 @@
 <nav>
     <a href="#home">Home</a>
     <a href="#weeks">Weekly Assignments</a>
-    <a href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html" target="_blank" rel="noreferrer">Project Proposal</a>
+    <a href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html"
+       target="_blank" rel="noreferrer">Project Proposal</a>
     <a href="#about">About</a>
 </nav>
 
 <main>
-    <section class="intro">
-        <h2>Welcome to My Portfolio</h2>
-        <p class="muted">
-            Explore my coursework by week and open the tasks directly from each weekly section.
-        </p>
-    </section>
 
-    <section id="weeks" class="section">
-        <div class="intro">
-            <h2 class="section-title">Weekly Assignments</h2>
-            <p class="muted">Open the task files under each week.</p>
-        </div>
+<section class="intro">
+    <h2>Welcome to My Portfolio</h2>
+    <p class="muted">
+        Explore my coursework by week and open the tasks directly.
+    </p>
+</section>
 
-        <div class="tasks">
-            <article class="card">
-                <h3>Week 1</h3>
-                <p>Exercises saved in the Week 1 folder.</p>
-                <div class="week-links">
-                    <a href="./week1/Task1.html">Task 1</a>
-                </div>
-            </article>
+<section id="weeks" class="section">
 
-            <article class="card">
-                <h3>Week 2</h3>
-                <p>Exercises saved in the Week 2 folder.</p>
-                <div class="week-links">
-                    <a href="./week%202/task1.html">1</a>
-                    <a href="./week%202/task2.html">2</a>
-                    <a href="./week%202/task3.html">3</a>
-                    <a href="./week%202/task4.html">4</a>
-                    <a href="./week%202/task5.html">5</a>
-                    <a href="./week%202/task6.html">6</a>
-                    <a href="./week%202/task7.html">7</a>
-                    <a href="./week%202/task8.html">8</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <h3>Week 3</h3>
-                <p>Exercises saved in the Week 3 folder.</p>
-                <div class="week-links">
-                    <a href="./week%203/task1.html">1</a>
-                    <a href="./week%203/task2.html">2</a>
-                    <a href="./week%203/task3.html">3</a>
-                    <a href="./week%203/task4.html">4</a>
-                    <a href="./week%203/task5.html">5</a>
-                    <a href="./week%203/task6.html">6</a>
-                    <a href="./week%203/task7.html">7</a>
-                    <a href="./week%203/task8.html">8</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <h3>Week 3.1</h3>
-                <p>Additional weekly exercises.</p>
-                <div class="week-links">
-                    <a href="./week3.1/task1.html">1</a>
-                    <a href="./week3.1/task2.html">2</a>
-                    <a href="./week3.1/task3.html">3</a>
-                    <a href="./week3.1/task5.html">5</a>
-                    <a href="./week3.1/task6.html">6</a>
-                    <a href="./week3.1/task7.html">7</a>
-                    <a href="./week3.1/tak4.html">4</a>
-                </div>
-            </article>
-
-           <article class="card">
-    <h3>Week 4</h3>
-    <p>Exercises saved in the Week 4 folder.</p>
-    <div class="week-links">
-        <a href="./week4/task1.html">Task 1</a>
-        <a href="./week4/task2.html">Task 2</a>
-        <a href="./week4/task3.html">Task 3</a>
-        <a href="./week4/task4.html">Task 4</a>
+    <div class="intro">
+        <h2 class="section-title">Weekly Assignments</h2>
+        <p class="muted">Add unlimited weeks and tasks to your portfolio.</p>
     </div>
-</article>
 
-            <article class="card">
-                <h3>Ad Project Proposal</h3>
-                <p>Team 4 project proposal for the advertising campaign assignment.</p>
-                <a href="https://sushant0101n-gif.github.io/team-4-project/proposal/index.html" target="_blank" rel="noreferrer">Open Proposal</a>
-            </article>
-        </div>
+    <button class="add-week" onclick="addWeek()">
+        + Add New Week
+    </button>
 
-        <p class="muted" style="margin-top:15px;">
-            Note: A folder link opens directly only if that folder contains an index.html file.
-            Otherwise use the task links under each week.
-        </p>
-    </section>
+    <div class="tasks" id="weekContainer"></div>
 
-    <section id="about" class="intro section">
-        <h2 class="section-title">About This Portfolio</h2>
-        <p class="muted">
-            This portfolio showcases my progress in HTML, CSS, JavaScript,
-            and web development at university.
-        </p>
-    </section>
+</section>
+
+<section id="about" class="intro section">
+    <h2 class="section-title">About This Portfolio</h2>
+    <p class="muted">
+        This portfolio showcases my progress in HTML, CSS, JavaScript,
+        and web development at university.
+    </p>
+</section>
+
 </main>
 
 <footer>
     <p>Binay — Web Programming Portfolio | 2026</p>
 </footer>
+
+<script>
+
+let weeks = JSON.parse(localStorage.getItem("binayWeeks")) || [
+    {
+        name: "Week 1",
+        tasks: [
+            { name: "Task 1", link: "./week1/Task1.html" }
+        ]
+    },
+    {
+        name: "Week 2",
+        tasks: Array.from({length: 8}, (_, i) => ({
+            name: "Task " + (i + 1),
+            link: "./week%202/task" + (i + 1) + ".html"
+        }))
+    },
+    {
+        name: "Week 3",
+        tasks: Array.from({length: 8}, (_, i) => ({
+            name: "Task " + (i + 1),
+            link: "./week%203/task" + (i + 1) + ".html"
+        }))
+    },
+    {
+        name: "Week 3.1",
+        tasks: [1, 2, 3, 5, 6, 7, 4].map(n => ({
+            name: "Task " + n,
+            link: "./week3.1/task" + n + ".html"
+        }))
+    },
+    {
+        name: "Week 4",
+        tasks: [1, 2, 3, 4].map(n => ({
+            name: "Task " + n,
+            link: "./week4/task" + n + ".html"
+        }))
+    }
+];
+
+function saveWeeks() {
+    localStorage.setItem("binayWeeks", JSON.stringify(weeks));
+}
+
+function renderWeeks() {
+
+    const container = document.getElementById("weekContainer");
+    container.innerHTML = "";
+
+    weeks.forEach((week, index) => {
+
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const heading = document.createElement("h3");
+        heading.textContent = week.name;
+
+        const description = document.createElement("p");
+        description.textContent = "Exercises saved in " + week.name + ".";
+
+        const links = document.createElement("div");
+        links.className = "week-links";
+
+        week.tasks.forEach((task, taskIndex) => {
+
+            const link = document.createElement("a");
+            link.textContent = task.name;
+            link.href = task.link;
+            links.appendChild(link);
+
+            // Edit task
+            const edit = document.createElement("button");
+            edit.textContent = "Edit";
+            edit.onclick = () => editTask(index, taskIndex);
+            links.appendChild(edit);
+
+        });
+
+        const addTaskButton = document.createElement("button");
+        addTaskButton.textContent = "+ Add Task";
+        addTaskButton.onclick = () => addTask(index);
+
+        const deleteWeekButton = document.createElement("button");
+        deleteWeekButton.textContent = "Delete Week";
+        deleteWeekButton.className = "delete-btn";
+        deleteWeekButton.onclick = () => deleteWeek(index);
+
+        card.append(
+            heading,
+            description,
+            links,
+            addTaskButton,
+            deleteWeekButton
+        );
+
+        container.appendChild(card);
+
+    });
+
+}
+
+function addWeek() {
+
+    const name = prompt("Enter week name:");
+
+    if (!name || !name.trim()) return;
+
+    weeks.push({
+        name: name.trim(),
+        tasks: []
+    });
+
+    saveWeeks();
+    renderWeeks();
+
+}
+
+function addTask(index) {
+
+    const name = prompt("Enter task name:");
+
+    if (!name || !name.trim()) return;
+
+    const link = prompt("Enter task file path (example: ./week5/task1.html):");
+
+    if (!link || !link.trim()) return;
+
+    weeks[index].tasks.push({
+        name: name.trim(),
+        link: link.trim()
+    });
+
+    saveWeeks();
+    renderWeeks();
+
+}
+
+function editTask(index, taskIndex) {
+
+    const task = weeks[index].tasks[taskIndex];
+
+    const name = prompt("Edit task name:", task.name);
+
+    if (!name || !name.trim()) return;
+
+    const link = prompt("Edit task link:", task.link);
+
+    if (!link || !link.trim()) return;
+
+    task.name = name.trim();
+    task.link = link.trim();
+
+    saveWeeks();
+    renderWeeks();
+
+}
+
+function deleteWeek(index) {
+
+    if (!confirm("Are you sure you want to delete this week?")) return;
+
+    weeks.splice(index, 1);
+
+    saveWeeks();
+    renderWeeks();
+
+}
+
+renderWeeks();
+
+</script>
 
 </body>
 </html>
